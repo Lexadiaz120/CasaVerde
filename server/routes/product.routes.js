@@ -38,8 +38,7 @@ router.get('/:id', async(req, res) => {
 })
  
 
-router.post('/new', async(req, res) => {
-    if(req.method === 'POST'){
+router.post('/new', async (req, res) => {
         const {name} = req.body; 
         if(name){
             try { 
@@ -54,13 +53,13 @@ router.post('/new', async(req, res) => {
                       .catch((error) => {
                           return res.status(500).json(error)
                       })
-                }              
+                
+                    }              
             } catch (error) {
                 return res.status(500).json(error)  
             }
         }
-    }
-} )
+})
  
 router.delete('/:id', async(req, res) => {
      const product = await Product.findById(id) 
